@@ -1,0 +1,58 @@
+<html>
+<head>
+    <title> XYZ Bank </title>
+
+    <script type="text/javascript">
+      function trigger(){
+        document.getElementById("hover").addEventListener("mouseover", popup);
+      }
+      function popup(){
+        alert("Welcome to XYZ Bank!!!");
+      }
+    </script>
+
+    <script>
+    function validateCustomer() {
+        var custID = document.getElementById("custID").value;
+
+        if (custID.includes("XYZ")) {
+            document.getElementById("result").innerHTML =
+            "Customer ID is valid. You can generate a coupon.";
+        }
+        else if(custID ==""){document.getElementById("result").innerHTML = "CustomerID can't be blank.";}
+        else {
+            document.getElementById("result").innerHTML =
+            "You are not a valid customer.";
+        }
+    }
+    </script>
+
+    <script>
+      function generateCoupon(){
+        var custId = document.getElementById("custID").value;
+        var x = custId + "789456";
+        var validateCust = custId.includes("XYZ");
+        if(validateCust){ document.write("Your coupon is:" +x); }
+        else document.write("Invalid customer ID so coupon can't be generated");
+      }
+    </script>
+</head>
+
+<body onload = "trigger();">
+    <p id="hover"> Welcome to XYZ Bank !!!</p>
+    <p id="demo"> Follow the below Steps to get Diwali coupon:- <br>
+        1)Enter your customer ID in the textbox <br>
+        2) Click on validate customer button <br>
+        3) Click on Register button to hide all the above steps and can apply for coupons <br>
+    </p>
+
+    <button type="button" onclick="document.getElementById('demo').style.display='none'">Click here to Register</button> <br> <br> <br>
+    Enter Customer ID:
+    <input id="custID" type="text" name="customerID"><br><br>
+
+    <p id="result"></p>
+
+    <button type="button" onclick="validateCustomer()">Validate customer</button>
+    <button type="button" onclick="generateCoupon()">Click here to generate coupon</button>
+</body>
+</html>
