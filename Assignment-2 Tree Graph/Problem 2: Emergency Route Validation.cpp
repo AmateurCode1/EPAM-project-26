@@ -41,7 +41,7 @@ public:
                 if (distance[next] == -1) {
                     distance[next] = distance[current] + 1;
 
-                    // We don't need to explore beyond D roads
+                    
                     if (distance[next] <= D) {
                         q.push(next);
                     }
